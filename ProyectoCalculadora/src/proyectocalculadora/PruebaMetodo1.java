@@ -19,10 +19,11 @@ public class PruebaMetodo1 {
         System.out.println(ProyectoCalculadora.revisaSintaxisInfija("(1.2/5)*100.1"));
         System.out.println(ProyectoCalculadora.revisaSintaxisInfija("0.1"));
         System.out.println(ProyectoCalculadora.revisaSintaxisInfija(".1")); 
-        System.out.println(ProyectoCalculadora.revisaSintaxisInfija("2/.1")); 
+        System.out.println(ProyectoCalculadora.revisaSintaxisInfija("~2/.1")); 
         System.out.println(ProyectoCalculadora.revisaSintaxisInfija("()1+2")); 
         System.out.println(ProyectoCalculadora.revisaSintaxisInfija("(+)1+2")); 
-        System.out.println(ProyectoCalculadora.revisaSintaxisInfija("+"));
-
+        System.out.println(ProyectoCalculadora.revisaSintaxisInfija("1345+~123"));
+        System.out.println(ProyectoCalculadora.revisaSintaxisInfija("~"));
+        System.out.println(ProyectoCalculadora.revisaSintaxisInfija("(~)"));
     }
 }

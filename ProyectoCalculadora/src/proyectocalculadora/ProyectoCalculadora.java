@@ -60,7 +60,7 @@ public class ProyectoCalculadora {
     public static boolean revisaNumerosOperandos(String dato){
         PilaADT<Character> pila = new PilaA();
         boolean resp = true;
-        int i=0; //esta mal
+        int i=0;
         while(resp && i<dato.length()){
             if(dato.charAt(i)=='0'|| dato.charAt(i)=='1' || dato.charAt(i)=='2' || dato.charAt(i)=='3' || dato.charAt(i)=='4' || dato.charAt(i)=='5' || dato.charAt(i)=='6' || dato.charAt(i)=='7' || dato.charAt(i)=='8' || dato.charAt(i)=='9' || dato.charAt(i)=='.' || dato.charAt(i)=='~'){
                 pila.push(dato.charAt(i));
@@ -80,9 +80,9 @@ public class ProyectoCalculadora {
             }
             i++;
         }
-        //checamos que ultimo dato sea numero
+        //checamos que ultimo dato sea numero, y que no sea punto o ~
         if(!pila.isEmpty()){
-            if(pila.peek()=='+'||pila.peek()=='-'||pila.peek()=='/'||pila.peek()=='*'||pila.peek()=='^'){
+            if(pila.peek()=='+'||pila.peek()=='-'||pila.peek()=='/'||pila.peek()=='*'||pila.peek()=='^'||pila.peek()=='.'||pila.peek()=='~'){
                 resp=false;
             }
         }
@@ -97,7 +97,7 @@ public class ProyectoCalculadora {
         }else{//si tiene datos, checamos parentesis
             if(revisaParentesis(dato)){//checa balance de parentesis
                 if(revisaContenidoParentesis(dato)){//checa que haya algo entre parentesis
-                    if(revisaNumerosOperandos(dato)==false){ //checa que operandos esten bien
+                    if(revisaNumerosOperandos(dato)==false){ //checa que operadores y operandos esten bien
                         resp=false;
                     }
                 }else{
