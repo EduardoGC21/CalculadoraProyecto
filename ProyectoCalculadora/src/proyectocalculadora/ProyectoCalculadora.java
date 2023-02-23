@@ -358,7 +358,6 @@ public class ProyectoCalculadora {
         while(i<a.length){
            try{
                num1=Double.parseDouble(a[i]);
-               System.out.println(num1);
                pila.push(num1);
            } 
            catch(Exception e){
