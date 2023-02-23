@@ -85,7 +85,7 @@ public class ProyectoCalculadora {
      * </ul>
      * </pre>
      */
-    public static boolean revisaNumerosOperandos(String dato){
+    public static boolean revisaOperandosOperadores(String dato){
         PilaADT<Character> pila = new PilaA();
         boolean resp = true;
         int i=0;
@@ -150,7 +150,7 @@ public class ProyectoCalculadora {
         }else{//si tiene datos, checamos parentesis
             if(revisaParentesis(dato)){//checa balance de parentesis
                 if(revisaContenidoParentesis(dato)){//checa que haya algo entre parentesis
-                    if(revisaNumerosOperandos(dato)==false){ //checa que operadores y operandos esten bien
+                    if(revisaOperandosOperadores(dato)==false){ //checa que operadores y operandos esten bien
                         resp=false;
                     }
                 }else{
@@ -165,7 +165,7 @@ public class ProyectoCalculadora {
     
     //ya que checamos que este bien escrito en infija
     //para el metodo 2
-     public static String[] dividirCadena(String cadena){
+    public static String[] dividirCadena(String cadena){
         StringBuilder num = new StringBuilder();  
         int length = cadena.length(); 
         String[] res= new String[length+1];//elegimos la capacidad máxima del arreglo como length +1, pues este va a ser el caso extremo en el que cada caracter es un operando o operacion y en la casilla cero metemos la n del arreglo
@@ -205,7 +205,7 @@ public class ProyectoCalculadora {
         return res; 
     }
    
-        public static String conviertePostfija(String cadena){
+    public static String conviertePostfija(String cadena){
         String [] dato= dividirCadena(cadena);
         StringBuilder postfija= new StringBuilder(); 
         PilaADT <String> operadores= new PilaA();
@@ -278,9 +278,7 @@ public class ProyectoCalculadora {
         return postfija.toString();
     }
     
-
-
-  public static int obtenPrioridad(String oper){
+    public static int obtenPrioridad(String oper){
         int prioridad; 
         
         switch(oper.charAt(0)){
@@ -306,8 +304,7 @@ public class ProyectoCalculadora {
         return prioridad;    
     }
 
-  
-    //falta metodo 3
+    
     public static String evalua(String cadena){
         String []a=cadena.split(" ");
         PilaA<Double> pila=new PilaA();
